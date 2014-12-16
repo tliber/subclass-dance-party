@@ -15,14 +15,16 @@ $(document).ready(function(){
      * A new object of the given type will be created and added
      * to the stage.
      */
-    var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
+    // var dancerMakerFunctionName = $(this).data("MakeBlinkyDancer");
+    // var dancerMakerFunction = new MakeBlinkyDancer(20,20,1000);
 
+    // console.log(dancerMakerFunction);
     // get the maker function for the kind of dancer we're supposed to make
-    var dancerMakerFunction = window[dancerMakerFunctionName];
-
+    //var dancerMakerFunction = window[dancerMakerFunctionName];
+    //console.log(dancerMakerFunction);
     // make a dancer with a random position
 
-    var dancer = dancerMakerFunction(
+    var dancer = new HyphyDancer(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
       Math.random() * 1000

@@ -1,20 +1,38 @@
 // Creates and returns a new dancer object that can step
-var makeDancer = function(top, left, timeBetweenSteps){
+var MakeDancer = function(top, left, timeBetweenSteps){
 
-  var dancer = {};
 
   // use jQuery to create an HTML <span> tag
-  dancer.$node = $('<span class="dancer"></span>');
+  this.$node = $('<span class="dancer"></span>');
+  this.setPosition(top, left);
+  this.timeBetweenSteps = timeBetweenSteps;
+  // console.log(this);
+  // this.step();
+  this.step();
+  //setTimeout(this.step, timeBetweenSteps);
+  // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
+  // this one sets the position to some random default point within the body
+
+  // console.log($node);
+};
 
 
-  dancer.step = function(){
-    // the basic dancer doesn't do anything interesting at all on each step,
-    // it just schedules the next step
-    setTimeout(dancer.step, timeBetweenSteps);
-  };
-  dancer.step();
 
-  dancer.setPosition = function(top, left){
+MakeDancer.prototype.step = function(){
+    //the basic dancer doesn't do anything interesting at all on each step,
+    //it just schedules the next step
+    // console.log(this);
+    // console.log(step);
+
+    var myThis = this;
+    // setTimeout(function() {
+    //   myThis.step.call(myThis);
+    //   //myThis.call(myThis);
+    // }, this.timeBetweenSteps);
+    setTimeout(myThis.step.bind(myThis),this.timeBetweenSteps)
+
+};
+MakeDancer.prototype.setPosition = function(top, left){
     // Use css top and left properties to position our <span> tag
     // where it belongs on the page. See http://api.jquery.com/css/
     //
@@ -22,12 +40,6 @@ var makeDancer = function(top, left, timeBetweenSteps){
       top: top,
       left: left
     };
-    dancer.$node.css(styleSettings);
+    this.$node.css(styleSettings);
+    // console.log(this.$node);
   };
-
-  // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
-  // this one sets the position to some random default point within the body
-  dancer.setPosition(top, left);
-
-  return dancer;
-};
