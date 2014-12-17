@@ -2,9 +2,12 @@ body, html{
   height:100%;
 }
 body{
-  margin: 0px;
+  margin: 10px;
   background-image: url('src/gifs/tmng-06202013-903-Edit-2.jpg');
+  background-repeat : no-repeat;
+  background-size : 105%;
   font-size: 18px;
+
 }
 
 body, a:link, a:visited, a:active{
@@ -26,8 +29,19 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
-
+.dancer.flash{
+  color : blue;
+}
 .turtles{
   position: absolute;
   size : 300px 300px;
 }
+.cats{
+  position: absolute;
+  size : 300px 300px;
+
+}
+
+
+
+
